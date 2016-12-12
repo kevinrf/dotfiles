@@ -103,7 +103,7 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+"nnoremap <leader><leader> <c-^>
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -143,6 +143,77 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+"autocmd vimenter * NERDTree
+map <silent> <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+" appearance
+syntax enable
+set background=dark
+colorscheme jellybeans
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='cool'
+let g:airline_skip_empty_sections = 0
+let g:airline_section_a=airline#section#create_right([])
+let g:airline_section_y=airline#section#create_right([])
+let g:airline#extensions#branch#format = 2
+let g:airline#extensions#branch#displayed_head_limit = 15
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : '',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ }
+let g:airline_exclude_filetypes = ['nerdtree']
+let g:NERDTreeStatusline="%{getcwd()}"
+
+" share osx clipboard
+set clipboard=unnamed
+
+" tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+" autocompletion
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_use_bundler = 1
+inoremap <Nul> <C-x><C-o>
+"
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" associate additional filetypes
+au BufRead,BufNewFile *.psql setfiletype sql
+
+" yank buffer path
+noremap <Leader>% :let @+ = expand("%")<CR>
+
+" rubocop
+let g:syntastic_ruby_checkers = ['rubocop']
+
+" gotta go fast
+let g:rspec_command = "!zeus rspec -fd {spec}"
+
+" keybinds
+map <silent> <F3> :Gblame<CR>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

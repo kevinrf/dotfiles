@@ -27,14 +27,23 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'ecomba/vim-ruby-refactoring'
 Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'kchmck/vim-coffee-script'
+Plug 'mileszs/ack.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
@@ -45,8 +54,16 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
+
+" need all 3 of these for snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
