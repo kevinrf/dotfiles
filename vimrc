@@ -160,9 +160,10 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='cool'
-let g:airline_skip_empty_sections = 0
-let g:airline_section_a=airline#section#create_right([])
-let g:airline_section_y=airline#section#create_right([])
+let g:airline_skip_empty_sections = 1
+let g:airline_section_a=""
+let g:airline_section_y=""
+let g:airline_section_z="%l:%c\ %p%%"
 let g:airline#extensions#branch#format = 2
 let g:airline#extensions#branch#displayed_head_limit = 15
 let g:airline#extensions#hunks#non_zero_only = 1
