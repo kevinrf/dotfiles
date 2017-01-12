@@ -194,8 +194,13 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 let g:NERDTreeStatusline="%{getcwd()}"
 
-" share osx clipboard
-set clipboard=unnamed
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    " share osx clipboard
+    set clipboard=unnamed
+  endif
+endif
 
 " tab completion
 set wildmode=longest,list,full
