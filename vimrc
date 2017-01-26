@@ -228,7 +228,7 @@ noremap <Leader>% :let @+ = expand("%")<CR>
 " rubocop
 let g:syntastic_ruby_checkers = ['rubocop']
 
-let g:rspec_command = "!bin/rspec -fd {spec}"
+let g:rspec_command = "!zeus rspec -fd {spec}"
 
 " keybinds
 map <silent> <F3> :Gblame<CR>
