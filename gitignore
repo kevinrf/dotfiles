@@ -12,3 +12,5 @@ tmp/**/*
 !tmp/cache/.keep
 *.pyc
 .ackrc
+.envrc
+Session.vim
