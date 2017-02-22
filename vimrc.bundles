@@ -28,6 +28,7 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
 Plug 'airblade/vim-gitgutter'
+Plug 'benmills/vimux'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'

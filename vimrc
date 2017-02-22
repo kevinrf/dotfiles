@@ -112,7 +112,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-let test#strategy = 'basic'
+let test#strategy = 'vimux'
 let test#ruby#rspec#options = {
   \ 'nearest': '--format documentation',
   \ 'file':    '--format documentation',
