@@ -112,9 +112,12 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+let test#strategy = 'basic'
+let test#ruby#rspec#options = {
+  \ 'nearest': '--format documentation',
+  \ 'file':    '--format documentation',
+  \ 'suite':   '--tag ~slow',
+\}
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -153,45 +156,6 @@ let NERDTreeShowHidden=1
 syntax enable
 set background=dark
 colorscheme jellybeans
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='cool'
-let g:airline_skip_empty_sections = 1
-let g:airline_section_a=""
-let g:airline_section_y=""
-let g:airline_section_z="%l:%c\ %p%%"
-let g:airline#extensions#branch#format = 2
-let g:airline#extensions#branch#displayed_head_limit = 15
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : '',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ }
-let g:airline_exclude_filetypes = ['nerdtree']
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
 let g:NERDTreeStatusline="%{getcwd()}"
 
 if has("unix")
@@ -212,12 +176,6 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_use_bundler = 1
 inoremap <Nul> <C-x><C-o>
-"
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 
 " associate additional filetypes
 au BufRead,BufNewFile *.psql setfiletype sql
@@ -227,8 +185,6 @@ noremap <Leader>% :let @+ = expand("%")<CR>
 
 " rubocop
 let g:syntastic_ruby_checkers = ['rubocop']
-
-let g:rspec_command = "!zeus rspec -fd {spec}"
 
 " keybinds
 map <silent> <F3> :Gblame<CR>
