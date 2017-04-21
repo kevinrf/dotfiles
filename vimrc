@@ -185,9 +185,12 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_use_bundler = 1
 inoremap <Nul> <C-x><C-o>
-
 " associate additional filetypes
 au BufRead,BufNewFile *.psql setfiletype sql
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
+ino {<CR> {<CR>}<ESC>O
 
 " yank buffer path
 noremap <Leader>% :let @+ = expand("%")<CR>
