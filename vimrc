@@ -200,6 +200,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 " keybinds
 map <silent> <F3> :Gblame<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
