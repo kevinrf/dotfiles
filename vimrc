@@ -88,6 +88,11 @@ set colorcolumn=+1
 set number
 set numberwidth=5
 
+" status line
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans'
+\ }
+
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
