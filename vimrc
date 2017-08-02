@@ -92,7 +92,14 @@ set numberwidth=5
 
 " status line
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans'
+\   'colorscheme': 'jellybeans',
+\   'component': {
+\     'ale': '%{ALEGetStatusLine()}'
+\   },
+\   'active': {
+\     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'relativepath' ] ],
+\     'right': [ [ 'ale', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+\   }
 \ }
 
 " Tab completion
@@ -141,8 +148,10 @@ nnoremap <C-l> <C-w>l
 
 " linter settings
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '🔴'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '!'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
