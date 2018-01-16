@@ -57,6 +57,8 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+"Plug 'udalov/kotlin-vim'
+Plug 'kevinrf/kotlin-vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
