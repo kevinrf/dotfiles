@@ -182,14 +182,6 @@ set background=dark
 colorscheme jellybeans
 let g:NERDTreeStatusline="%{getcwd()}"
 
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    " share osx clipboard
-    set clipboard=unnamed
-  endif
-endif
-
 " tab completion
 set wildmode=longest,list,full
 set wildmenu
