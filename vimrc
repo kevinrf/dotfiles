@@ -116,16 +116,16 @@ set number
 set numberwidth=5
 
 " status line
-" let g:lightline = {
-" \   'colorscheme': 'jellybeans',
-" \   'component': {
 " \     'ale': '%{ALEGetStatusLine()}'
-" \   },
-" \   'active': {
-" \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'relativepath' ] ],
-" \     'right': [ [ 'ale', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-" \   }
-" \ }
+let g:lightline = {
+\   'colorscheme': 'jellybeans',
+\   'component': {
+\   },
+\   'active': {
+\     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'relativepath' ] ],
+\     'right': [ [ 'ale', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+\   }
+\ }
 
 " Tab completion
 " will insert tab at beginning of line,
